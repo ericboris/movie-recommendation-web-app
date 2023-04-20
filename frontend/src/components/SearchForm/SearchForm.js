@@ -6,4 +6,5 @@ document.getElementById('search-form').addEventListener('submit', function(event
 
     // Perform movie search (e.g. call API, render search results)
     console.log(`Search query: ${searchQuery}`);
+    window.location.href = "movie_list.html";
 });

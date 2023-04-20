@@ -14,5 +14,9 @@ function createMovieCard(movie) {
     description.textContent = movie.description;
     movieCard.appendChild(description);
 
+    movieCard.addEventListener("click", function() {
+        window.location.href = "movie_details.html";
+    });
+
     return movieCard;
 }

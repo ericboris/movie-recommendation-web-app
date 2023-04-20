@@ -7,4 +7,5 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
     // Perform login logic (e.g. call API, validate user, redirect)
     console.log(`Email: ${email}, Password: ${password}`);
+    window.location.href = "search.html";
 });
