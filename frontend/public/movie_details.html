@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details - Movie Recommendation App</title>
+    <link rel="stylesheet" href="../src/App.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">Home</a>
+        <a href="search.html">Search</a>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="movie-title">Movie Title</h1>
+            <section class="movie-details">
+                <img src="movie-poster-url" alt="Movie poster" class="movie-poster">
+                <p class="movie-description">Movie description goes here.</p>
+                <ul class="additional-info">
+                    <li><strong>Release Date:</strong> YYYY-MM-DD</li>
+                    <li><strong>Runtime:</strong> XX minutes</li>
+                    <li><strong>Director:</strong> Director's Name</li>
+                    <li><strong>Cast:</strong> Actor 1, Actor 2, Actor 3</li>
+                    <li><strong>Genres:</strong> Genre 1, Genre 2</li>
+                </ul>
+            </section>
+
+            <section class="rating-review">
+                <form id="rating-review-form">
+                    <label for="rating">Rating (1-5):</label>
+                    <select id="rating" name="rating">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <button type="submit">Submit Rating & Review</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Add your footer content here -->
+    </footer>
+
+    <script src="../src/App.js"></script>
+</body>
+</html>
