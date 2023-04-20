@@ -119,5 +119,9 @@ python3 app.py
 ```
 
 ### Basic structure and layout of the web application created using HTML, CSS, and JavaScript.
+* I blocked out the basic structure of the site in HTML. 
+* I connected basic javascript functionality to the html pages.
+* Design is low priority so I'll do CSS later. 
+
 ### Simple static movie list for testing purposes integrated.
 
