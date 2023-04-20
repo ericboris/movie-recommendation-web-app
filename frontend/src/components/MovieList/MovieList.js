@@ -1,3 +1,8 @@
-// Fetch movie data and display it (e.g. call API, render movie list)
+document.addEventListener("DOMContentLoaded", function () {
+    const movieListElement = document.getElementById("movie-list");
 
-// Add event listeners for movie items (e.g. click to view movie details)
+    movieList.forEach((movie) => {
+        const movieCard = createMovieCard(movie);
+        movieListElement.appendChild(movieCard);
+    });
+});

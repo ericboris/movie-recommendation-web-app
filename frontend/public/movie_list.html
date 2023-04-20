@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie List - Movie Recommendation App</title>
+    <title>Movie List</title>
     <link rel="stylesheet" href="../src/App.css">
+    <style>
+        .movie-card {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,15 +20,11 @@
 
     <main>
         <h1>Movie List</h1>
-        <section class="movie-list">
-            <!-- Movie cards or list items will be displayed here -->
-        </section>
+        <div id="movie-list"></div>
     </main>
 
-    <footer>
-        <!-- Add your footer content here -->
-    </footer>
-
+    <script src="../src/staticMovieList.js"></script>
+    <script src="../src/components/MovieCard/MovieCard.js"></script>
     <script src="../src/components/MovieList/MovieList.js"></script>
 </body>
 </html>

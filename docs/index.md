@@ -124,4 +124,10 @@ python3 app.py
 * Design is low priority so I'll do CSS later. 
 
 ### Simple static movie list for testing purposes integrated.
+* I created ```staticMovieList.js``` in ```frontend/src/```. It contains a list of movie-objects of the form ```{id:int, title:str, releaseDate:str, description:str}```.
+* I updated ```movie_list.html``` to load ```staticMovieList.js```, ```MovieCard.js```, and ```MovieList.js``` using script tags.
+* I added an event listener to ```MovieList.js``` to get the movie list from ```movie_list.html```, pass the content of each movie to ```MovieCard.html``` to be rendered in html, and append the rendered html into the movie list html element.
+* I updated ```MovieCard.js``` to receive a movie object and return it rendered as html.
+
+
 
