@@ -3,6 +3,7 @@ import './App.css';
 import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
 import UserProfile from '../UserProfile/UserProfile';
+import MovieSearch from '../MovieSearch/MovieSearch';
 
 function App() {
     const handleLogin = () => {
@@ -15,6 +16,10 @@ function App() {
 
     const userProfile = { id:1, email:"UserEmail@Email.com" };
 
+    const handleSearch = (results) => {
+        console.log(results)
+    };
+
     return (
         <div className="App">
             <h1>Movie Recommendation App</h1>
@@ -22,6 +27,7 @@ function App() {
                 <LoginForm onLogin={handleLogin} />
                 <SignupForm onSignup={handleSignup} />
                 <UserProfile user={userProfile} />
+                <MovieSearch onSearch={handleSearch} />
             </nav>
         </div>
     );
