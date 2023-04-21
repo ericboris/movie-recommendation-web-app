@@ -33,6 +33,9 @@ logs/
 *.log
 *.log.*
 
+# ignore cache files
+.frontend/.parcel-cache
+
 # ignore package-lock.json and yarn.lock
 package-lock.json
 yarn.lock
