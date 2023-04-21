@@ -58,6 +58,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#sprint-2-frontend-framework-and-components" class="nav-link">Sprint 2: Frontend Framework and Components</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -185,6 +189,36 @@ I verified that the Flask installations were working.
 <li>I updated <code>movie_list.html</code> to load <code>staticMovieList.js</code>, <code>MovieCard.js</code>, and <code>MovieList.js</code> using script tags.</li>
 <li>I added an event listener to <code>MovieList.js</code> to get the movie list from <code>movie_list.html</code>, pass the content of each movie to <code>MovieCard.html</code> to be rendered in html, and append the rendered html into the movie list html element.</li>
 <li>I updated <code>MovieCard.js</code> to receive a movie object and return it rendered as html.</li>
+</ul>
+<h2 id="sprint-2-frontend-framework-and-components">Sprint 2: Frontend Framework and Components</h2>
+<h3 id="static-website-migrated-to-a-dynamic-react-application">Static website migrated to a dynamic React application.</h3>
+<ul>
+<li>I initialized a new React app using <code>npx create-react-app new-app</code> inside my existing <code>frontend/</code> directory.</li>
+<li>I moved my existing <code>.js</code> and <code>.html</code> files from my existing project into the appropriate directories in the new React app.</li>
+<li>I rebuilt any broken references between files so that the page links all worked correctly.</li>
+<li>I deleted any files in the <code>frontend/</code> that were not the React app containing folder <code>new-app/</code>.</li>
+<li>I moved all files from <code>new-app/</code> into <code>frontend/</code>.</li>
+<li>I deleted the empty <code>new-app/</code> directory.</li>
+</ul>
+<h3 id="configure-parcel-side-quest">Configure Parcel (Side Quest)</h3>
+<ul>
+<li>I installed Parcel with:
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>npm<span class="w"> </span>install<span class="w"> </span>--save-dev<span class="w"> </span>parcel<span class="w"> </span>parcel-plugin-static-files-copy
+</span></code></pre></div></li>
+<li>I modified <code>package.json</code> to use Parcel:
+<div class="language-json highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nt">&quot;scripts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">    </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;parcel ./public/index.html&quot;</span><span class="p">,</span>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">    </span><span class="nt">&quot;build&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;parcel build ./public/index.html --dist-dir ./dist&quot;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="p">}</span>
+</span></code></pre></div></li>
+<li>I removed the following script imports from <code>index.html</code>.
+<div class="language-html highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/react@17.0.2/umd/react.development.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></code></pre></div></li>
+</ul>
+<h3 id="reusable-react-components-created-for-different-parts-of-the-application-eg-movie-cards-rating-system-search-bar">Reusable React components created for different parts of the application (e.g., movie cards, rating system, search bar).</h3>
+<ul>
+<li>I built basic LoginForm and SignupForm components that function as pop-ups when their respective buttons are clicked.</li>
 </ul></div>
             </div>
         </div>
@@ -266,5 +300,5 @@ I verified that the Flask installations were working.
 
 <!--
 MkDocs version : 1.4.2
-Build Date UTC : 2023-04-21 17:21:55.967951+00:00
+Build Date UTC : 2023-04-21 19:43:26.343362+00:00
 -->
