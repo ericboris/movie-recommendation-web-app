@@ -130,4 +130,34 @@ python3 app.py
 * I updated ```MovieCard.js``` to receive a movie object and return it rendered as html.
 
 
+## Sprint 2: Frontend Framework and Components
 
+### Static website migrated to a dynamic React application.
+* I initialized a new React app using ```npx create-react-app new-app``` inside my existing ```frontend/``` directory.
+* I moved my existing ```.js``` and ```.html``` files from my existing project into the appropriate directories in the new React app.
+* I rebuilt any broken references between files so that the page links all worked correctly.
+* I deleted any files in the ```frontend/``` that were not the React app containing folder ```new-app/```.
+* I moved all files from ```new-app/``` into ```frontend/```.
+* I deleted the empty ```new-app/``` directory.
+
+
+### Configure Parcel (Side Quest)
+* I installed Parcel with:
+```shell
+npm install --save-dev parcel parcel-plugin-static-files-copy
+```
+* I modified `package.json` to use Parcel:
+```json
+"scripts": {
+    "start": "parcel ./public/index.html",
+    "build": "parcel build ./public/index.html --dist-dir ./dist"
+}
+```
+* I removed the following script imports from `index.html`.
+```html
+<script src="https://unpkg.com/react@17.0.2/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.development.js"></script>
+```
+
+### Reusable React components created for different parts of the application (e.g., movie cards, rating system, search bar).
+* I built basic LoginForm and SignupForm components that function as pop-ups when their respective buttons are clicked.
