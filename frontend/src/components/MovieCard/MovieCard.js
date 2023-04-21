@@ -1,22 +1,34 @@
-function createMovieCard(movie) {
-    const movieCard = document.createElement("div");
-    movieCard.className = "movie-card";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-    const title = document.createElement("h2");
-    title.textContent = movie.title;
-    movieCard.appendChild(title);
+const MovieCard = ({ movie, onSelect }) => {
+    const { id, title, poster, description } = movie;
 
-    const releaseDate = document.createElement("p");
-    releaseDate.textContent = `Release Date: ${movie.releaseDate}`;
-    movieCard.appendChild(releaseDate);
+    const handleClick = () => {
+        onSelect(id);
+    };
 
-    const description = document.createElement("p");
-    description.textContent = movie.description;
-    movieCard.appendChild(description);
+    return (
+        <div className="movie-card" onClick={handleClick}>
+            { /* TODO support poster
+            <img src={poster} alt={`${title} Poster`} className="movie-card__poster" />
+            */ }
+            <div className="movie-card__info">
+                <h3 className="movie-card__title">{title}</h3>
+                <p className="movie-card__description">{description}</p>
+            </div>
+        </div>
+    );
+};
 
-    movieCard.addEventListener("click", function() {
-        window.location.href = "movie_details.html";
-    });
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        title: PropTypes.string.isRequired,
+        // poster: PropTypes.string,
+        description: PropTypes.string,
+    }).isRequired,
+    onSelect: PropTypes.func.isRequired,
+};
 
-    return movieCard;
-}
+export default MovieCard;

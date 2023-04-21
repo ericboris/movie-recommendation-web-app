@@ -5,6 +5,8 @@ import SignupForm from '../SignupForm/SignupForm';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieSearch from '../MovieSearch/MovieSearch';
 import MovieList from '../MovieList/MovieList';
+import MovieCard from '../MovieCard/MovieCard';
+
 import movieList from '../../staticMovieList';
 
 function App() {
@@ -34,7 +36,12 @@ function App() {
                 <SignupForm onSignup={handleSignup} />
                 <UserProfile user={userProfile} />
                 <MovieSearch onSearch={handleSearch} />
-                <MovieList movies={movieList} onSelectMovie={handleSelectMovie} />
+                { /* <MovieList movies={movieList} onSelectMovie={handleSelectMovie} /> */}
+                { /*
+                {movieList.map((movie) => (
+                    <MovieCard movie={movie} onSelect={handleSelectMovie} />
+                ))}
+                */ }
             </nav>
         </div>
     );
