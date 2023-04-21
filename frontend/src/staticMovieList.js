@@ -36,3 +36,5 @@ const movieList = [
         description: "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
     },
 ];
+
+export default movieList;

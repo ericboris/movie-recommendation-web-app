@@ -4,8 +4,12 @@ import LoginForm from '../LoginForm/LoginForm';
 import SignupForm from '../SignupForm/SignupForm';
 import UserProfile from '../UserProfile/UserProfile';
 import MovieSearch from '../MovieSearch/MovieSearch';
+import MovieList from '../MovieList/MovieList';
+import movieList from '../../staticMovieList';
 
 function App() {
+    const userProfile = { id:1, email:"UserEmail@Email.com" };
+
     const handleLogin = () => {
         console.log("Logged In!"); 
     };
@@ -14,10 +18,12 @@ function App() {
         console.log("Signed up!"); 
     };
 
-    const userProfile = { id:1, email:"UserEmail@Email.com" };
-
     const handleSearch = (results) => {
         console.log(results)
+    };
+
+    const handleSelectMovie = (movie) => {
+        console.log(movie);
     };
 
     return (
@@ -28,6 +34,7 @@ function App() {
                 <SignupForm onSignup={handleSignup} />
                 <UserProfile user={userProfile} />
                 <MovieSearch onSearch={handleSearch} />
+                <MovieList movies={movieList} onSelectMovie={handleSelectMovie} />
             </nav>
         </div>
     );
