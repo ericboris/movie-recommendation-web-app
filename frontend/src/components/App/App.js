@@ -6,6 +6,7 @@ import UserProfile from '../UserProfile/UserProfile';
 import MovieSearch from '../MovieSearch/MovieSearch';
 import MovieList from '../MovieList/MovieList';
 import MovieCard from '../MovieCard/MovieCard';
+import MovieDetails from '../MovieDetails/MovieDetails';
 
 import movieList from '../../staticMovieList';
 
@@ -28,6 +29,14 @@ function App() {
         console.log(movie);
     };
 
+    const handleRating = (id, rating) => {
+        console.log(id, rating);
+    };
+
+    const handleReview = (id, review) => {
+        console.log(id, review);
+    };
+
     return (
         <div className="App">
             <h1>Movie Recommendation App</h1>
@@ -42,6 +51,9 @@ function App() {
                     <MovieCard movie={movie} onSelect={handleSelectMovie} />
                 ))}
                 */ }
+                {movieList.map((movie) => (
+                    <MovieDetails movie={movie} onRate={handleRating} onReview={handleReview} />
+                ))}
             </nav>
         </div>
     );
