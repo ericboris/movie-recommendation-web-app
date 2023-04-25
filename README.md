@@ -4,9 +4,9 @@
 - [X] Basic structure and layout of the web application created using HTML, CSS, and JavaScript.  
 - [X] Simple static movie list for testing purposes integrated.  
 
-[ ] Sprint 2: Frontend Framework and Components
-- [ ] Static website migrated to a dynamic React application.
-- [ ] Reusable React components created for different parts of the application (e.g., movie cards, rating system, search bar).
+[X] Sprint 2: Frontend Framework and Components
+- [X] Static website migrated to a dynamic React application.
+- [X] Reusable React components created for different parts of the application (e.g., movie cards, rating system, search bar).
 
 [ ] Sprint 3: Backend Server and Public API Integration
 - [ ] Backend server set up using Python and Flask.
