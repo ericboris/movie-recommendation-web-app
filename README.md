@@ -10,17 +10,17 @@ Schedule:
 
 Sprint 1: Project Setup and Backend Infrastructure  
   
- - [ ] Set up the development environment and version control  
-    -   [ ] Choose an appropriate IDE  
-    -   [ ] Install necessary tools and packages  
-    -   [ ] Configure version control (e.g., Git)  
- - [ ] Create project repositories and branches  
-    -   [ ] Set up repository on a platform like GitHub, GitLab, or Bitbucket  
-    -   [ ] Create main and development branches  
- - [ ] Design the database schema for MovieRatings table  
-    -   [ ] Identify necessary columns and data types  
-    -   [ ] Determine relationships between tables  
-    -   [ ] Create a diagram of the schema  
+ - [X] Set up the development environment and version control  
+    -   [X] Choose an appropriate IDE  
+    -   [X] Install necessary tools and packages  
+    -   [X] Configure version control (e.g., Git)  
+ - [X] Create project repositories and branches  
+    -   [X] Set up repository on a platform like GitHub, GitLab, or Bitbucket  
+    -   [X] Create main and development branches  
+ - [X] Design the database schema for MovieRatings table  
+    -   [X] Identify necessary columns and data types  
+    -   [X] Determine relationships between tables  
+    -   [X] Create a diagram of the schema  
  - [ ] Develop API Gateway and UserService  
     -   [ ] Define API routes and endpoints  
     -   [ ] Implement basic CRUD operations for users  
@@ -29,7 +29,7 @@ Sprint 1: Project Setup and Backend Infrastructure
     -   [ ] Add MetaMask integration to UserService  
     -   [ ] Develop endpoints for MetaMask sign-in and authentication  
   
- - Sprint 2: Frontend Infrastructure and Components  
+Sprint 2: Frontend Infrastructure and Components  
   
  - [ ] Set up the React project  
     -   [ ] Initialize the React project using Create React App or a similar tool  
@@ -46,7 +46,7 @@ Sprint 1: Project Setup and Backend Infrastructure
     -   [ ] Sketch out component layout and appearance  
     -   [ ] Define props and state required for each component  
  
- - Sprint 3: Backend Services  
+Sprint 3: Backend Services  
  
  - [ ] Develop MovieService to interact with public movie API  
     -   [ ] Identify appropriate movie API (e.g., The Movie Database API)  
@@ -62,7 +62,7 @@ Sprint 1: Project Setup and Backend Infrastructure
     -   [ ] Develop a recommendation algorithm  
     -   [ ] Integrate algorithm with movie and user data  
  
- - Sprint 4: Frontend Integration and Movie Search  
+Sprint 4: Frontend Integration and Movie Search  
  
  - [ ] Implement MovieSearch component to search and fetch movie results  
     -   [ ] Develop search form and input handling  
@@ -74,7 +74,7 @@ Sprint 1: Project Setup and Backend Infrastructure
     -   [ ] Design layout for movie details, including title, poster, and synopsis  
     -   [ ] Add rating display and interaction functionality  
  
- - Sprint 5: Frontend Ratings and Recommendations  
+Sprint 5: Frontend Ratings and Recommendations  
  
  - [ ] Implement rating functionality using MetaMask integration  
     -   [ ] Connect rating submission to RatingService and MetaMask  
@@ -86,7 +86,7 @@ Sprint 1: Project Setup and Backend Infrastructure
     -   [ ] Fetch recommendations based on user's movie ratings  
     -   [ ] Display recommendations to the user  
  
- - Sprint 6: Testing and Debugging  
+Sprint 6: Testing and Debugging  
  
  - [ ] Perform unit testing for backend services and frontend components  
     -   [ ] Write test cases for each service and component  
@@ -98,7 +98,7 @@ Sprint 1: Project Setup and Backend Infrastructure
     -   [ ] Debug and resolve issues found during testing  
     -   [ ] Refine code and performance as needed  
  
- - Sprint 7: Deployment, Scaling, and Final Testing  
+Sprint 7: Deployment, Scaling, and Final Testing  
   
  - [ ] Set up Kubernetes and Helm for deployment  
     -   [ ] Install and configure Kubernetes  
