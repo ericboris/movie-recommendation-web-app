@@ -1,5 +1,5 @@
-from flask import Blueprint
+from flask import Flask
 
-api = Blueprint('api', __name__)
+app = Flask(__name__)
 
-from . import users, movies, ratings, recommendations
+from . import api_gateway
