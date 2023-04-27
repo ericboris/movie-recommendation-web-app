@@ -1,18 +1,13 @@
-from flask import request, jsonify
+from flask import Flask, request, jsonify
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 from werkzeug.utils import escape
 import jsonschema
 
-from services.user_service import UserService
-from services.movie_service import MovieService
-from services.rating_service import RatingService
-from services.recommendation_service import RecommendationService
+from services import AuthenticationService, MovieService, RatingService, RecommendationService
 
-from utils.authentication import authenticate_user
-
+app = Flask(__name__)
 limiter = Limiter(app, key_func=get_remote_address, default_limits=["500 per day"])
-user_service = UserService()
 movie_service = MovieService()
 rating_service = RatingService()
 recommendation_service = RecommendationService()
@@ -30,21 +25,13 @@ input_schema = {
 }
 
 @app.route('/auth/connect', methods=['POST'])
+@AuthenticationService.authenticate_user
 def connect_wallet():
-    # Authenticate the user
-    wallet_address = authenticate_user()
-    if not wallet_address:
-        return jsonify({"error": "User not authenticated"})
-
     return jsonify({"message": "Wallet connected"})
 
 @app.route('/auth/disconnect', methods=['POST'])
+@AuthenticationService.authenticate_user
 def disconnect_wallet():
-    # Authenticate the user
-    wallet_address = authenticate_user()
-    if not wallet_address:
-        return jsonify({"error": "User not authenticated"})
-
     return jsonify({"message": "Wallet disconnected"})
 
 @app.route('/movies/search', methods=['GET'])
@@ -62,12 +49,8 @@ def get_movie_details(movie_id):
     return jsonify(details)
 
 @app.route('/movies/<int:movie_id>/rating', methods=['POST'])
+@AuthenticationService.authenticate_user
 def create_rating(movie_id):
-    # Authenticate the user
-    wallet_address = authenticate_user()
-    if not wallet_address:
-        return jsonify({"error": "User not authenticated"})
-
     # Validate input data against schema
     try:
         jsonschema.validate(request.json, input_schema)
@@ -81,12 +64,8 @@ def create_rating(movie_id):
     return jsonify({"message": "Rating created"})
 
 @app.route('/movies/<int:movie_id>/rating', methods=['PUT'])
+@AuthenticationService.authenticate_user
 def update_rating(movie_id):
-    # Authenticate the user
-    wallet_address = authenticate_user()
-    if not wallet_address:
-        return jsonify({"error": "User not authenticated"})
-
     # Validate input data against schema
     try:
         jsonschema.validate(request.json, input_schema)
@@ -100,12 +79,8 @@ def update_rating(movie_id):
     return jsonify({"message": "Rating updated"})
 
 @app.route('/movies/<int:movie_id>/rating', methods=['DELETE'])
+@AuthenticationService.authenticate_user
 def delete_rating(movie_id):
-    # Authenticate the user
-    wallet_address = authenticate_user()
-    if not wallet_address:
-        return jsonify({"error": "User not authenticated"})
-
     rating_service.delete_rating(wallet_address, movie_id)
     return jsonify({"message": "Rating deleted"})
 
@@ -113,7 +88,7 @@ def delete_rating(movie_id):
 @limiter.limit("10 per minute")
 def get_recommendations():
     # Authenticate the user
-    wallet_address = authenticate_user()
+    wallet_address = try_authenticate_user()
 
     # If the user is not authenticated, provide movie recommendations based on collective ratings
     if not wallet_address:
