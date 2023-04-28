@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
 import ConnectWallet from '../ConnectWallet/ConnectWallet';
-import UserProfile from '../UserProfile/UserProfile';
 import MovieSearch from '../MovieSearch/MovieSearch';
 import MovieList from '../MovieList/MovieList';
 import movies from '../../staticMovieList';
 
 function App() {
-    const [connectedUser, setConnectedUser] = useState(null);
+    const [connectedAddress, setConnectedAddress] = useState(null);
 
-    const handleConnect = (user) => {
-        setConnectedUser(user);
-    };
-
-    const handleDisconnect = () => {
-        setConnectedUser(null);
+    const handleConnect = (address) => {
+        setConnectedAddress(address);
     };
 
     const handleSelectMovie = (id) => {
@@ -25,13 +20,7 @@ function App() {
             <header className="App-header">
                 <h1>Movie Recommendation Web App</h1>
             </header>
-            {/*
-            {connectedUser ? (
-                <UserProfile user={connectedUser} />
-            ) : (
-                <ConnectWallet onConnect={handleConnect} onDisconnect={handleDisconnect} />
-            )}
-            */}
+            <ConnectWallet onConnect={handleConnect} />
             <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
         </div>
     );
