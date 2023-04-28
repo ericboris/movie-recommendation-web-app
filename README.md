@@ -21,20 +21,20 @@ Sprint 1: Project Setup and Backend Infrastructure
     -   [X] Identify necessary columns and data types  
     -   [X] Determine relationships between tables  
     -   [X] Create a diagram of the schema  
- - [ ] Develop API Gateway and UserService  
-    -   [ ] Define API routes and endpoints  
-    -   [ ] Implement basic CRUD operations for users  
-    -   [ ] Set up authentication middleware  
- - [ ] Create endpoints for authentication using MetaMask  
-    -   [ ] Add MetaMask integration to UserService  
-    -   [ ] Develop endpoints for MetaMask sign-in and authentication  
+ - [X] Develop API Gateway and AuthenticationService
+    -   [X] Define API routes and endpoints  
+    -   [X] Implement basic CRUD operations for users  
+    -   [X] Set up authentication middleware  
+ - [X] Create endpoints for authentication using MetaMask  
+    -   [X] Add MetaMask integration to AuthenticationService
+    -   [X] Develop endpoints for MetaMask sign-in and authentication  
   
 Sprint 2: Frontend Infrastructure and Components  
   
- - [ ] Set up the React project  
-    -   [ ] Initialize the React project using Create React App or a similar tool  
-    -   [ ] Set up folder structure and file organization  
-    -   [ ] Install necessary dependencies  
+ - [X] Set up the React project  
+    -   [X] Initialize the React project using Create React App or a similar tool  
+    -   [X] Set up folder structure and file organization  
+    -   [X] Install necessary dependencies  
  - [ ] Develop the App, ConnectWallet, and UserProfile components  
     -   [ ] Create the main App component to manage state and routing  
     -   [ ] Implement the ConnectWallet component for MetaMask integration  
