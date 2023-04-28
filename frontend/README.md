@@ -4,18 +4,10 @@ Frontend (React) Components:
         Main application container, handling routing and authentication, and rendering child components based on user actions and application state. Props: None
 
     ConnectWallet component:
-        Manages user connection and disconnection of MetaMask wallet, retrieves the wallet address, and communicates with the API Gateway for authentication.
+        Manages user connection to MetaMask wallet, retrieves the wallet address, and communicates with the API Gateway for authentication.
+        Displays connected user wallet address.
         Props:
             onConnect: PropTypes.func.isRequired (callback function executed after successful connection)
-
-            onDisconnect: PropTypes.func.isRequired (callback function executed after successful disconnection)
-
-    UserProfile component:
-        Displays user wallet address. Communicates with the API Gateway for any profile updates.
-        Props:
-            user: PropTypes.shape({
-                address: PropTypes.string.isRequired,
-            }).isRequired (connected user object)
 
     MovieSearch component:
         Allows users to search for movies by title or keywords, captures user input, and communicates with the MovieService to fetch search results.
