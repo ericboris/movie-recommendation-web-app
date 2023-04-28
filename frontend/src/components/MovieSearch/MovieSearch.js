@@ -1,49 +1,33 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-// Assuming that MovieService is already imported or defined somewhere
-// Example: import MovieService from './MovieService';
+function MovieSearch({ onSearch }) {
+  const [searchText, setSearchText] = useState('');
 
-const MovieSearch = ({ onSearch }) => {
-    const [searchTerm, setSearchTerm] = useState('');
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
+  };
 
-    const handleSearchInputChange = (event) => {
-        setSearchTerm(event.target.value);
-    };
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchText);
+  };
 
-    const handleSearchSubmit = async (event) => {
-        event.preventDefault();
-        if (searchTerm.trim() === '') {
-            return;
-        }
-
-        try {
-            // const results = await MovieService.searchMovies(searchTerm);
-            const results = "MovieService.searchMovies results";
-            // TODO: replace searchTerm with results
-            onSearch(searchTerm);
-        } catch (error) {
-            console.error('Error fetching movie search results:', error);
-        }
-    };
-
-    return (
-        <div className="movie-search">
-            <form onSubmit={handleSearchSubmit}>
-                <input
-                    type="text"
-                    value={searchTerm}
-                    onChange={handleSearchInputChange}
-                    placeholder="Search for movies by title or keywords..."
-                />
-                <button type="submit">Search</button>
-            </form>
-        </div>
-    );
-};
+  return (
+    <form onSubmit={handleSearchSubmit}>
+      <input
+        type="text"
+        value={searchText}
+        onChange={handleSearchChange}
+        placeholder="Search for movies"
+      />
+      <button type="submit">Search</button>
+    </form>
+  );
+}
 
 MovieSearch.propTypes = {
-    onSearch: PropTypes.func.isRequired,
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default MovieSearch;
