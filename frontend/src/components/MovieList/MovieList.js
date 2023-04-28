@@ -3,15 +3,19 @@ import PropTypes from 'prop-types';
 import MovieCard from '../MovieCard/MovieCard';
 import './MovieList.css';
 
-function MovieList({ movies, onSelectMovie }) {
-    const handleRateMovie = () => {
-        console.log("Movie Rated");
+function MovieList({ movies, onSelectMovie, connectedAddress }) {
+    const handleRateMovie = (movieId, rating) => {
+        if (connectedAddress !== null) {
+            console.log("MovieID:", movieId, " Rating:", rating);
+        } else {
+            alert('Please connect your wallet to rate movies.');
+        };
     };
 
     return (
         <div className="movie-list">
             {movies.map((movie) => (
-                <MovieCard key={movie.id} movie={movie} userRating={0} isConnected={false} onSelect={onSelectMovie} onRate={handleRateMovie} />
+                <MovieCard key={movie.id} movie={movie} userRating={0} onSelect={onSelectMovie} onRate={handleRateMovie} />
             ))}
         </div>
     );
@@ -27,6 +31,7 @@ MovieList.propTypes = {
         }),
     ).isRequired,
     onSelectMovie: PropTypes.func.isRequired,
+    connectedAddress: PropTypes.string,
 };
 
 export default MovieList;

@@ -12,7 +12,7 @@ function App() {
     };
 
     const handleSelectMovie = (id) => {
-        console.log('Movie id=', id); 
+        console.log("App.handleSelectMovie"); 
     };
 
     return (
@@ -21,7 +21,7 @@ function App() {
                 <h1>Movie Recommendation Web App</h1>
             </header>
             <ConnectWallet onConnect={handleConnect} />
-            <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
+            <MovieList movies={movies} onSelectMovie={handleSelectMovie} connectedAddress={connectedAddress} />
         </div>
     );
 }

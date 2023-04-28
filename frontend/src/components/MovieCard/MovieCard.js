@@ -1,14 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './MovieCard.css';
+import ReactStars from 'react-rating-stars-component';
 
-function MovieCard({ movie, userRating, isConnected, onSelect, onRate }) {
-    const handleRate = (rating) => {
-        if (isConnected) {
-            onRate(movie.id, rating);
-        } else {
-            alert('Please connect your MetaMask wallet to rate movies.');
-        }
+function MovieCard({ movie, userRating, onSelect, onRate }) {
+    const handleRating = (rating) => {
+        onRate(movie.id, rating);
     };
 
     const handleClick = () => {
@@ -20,7 +17,13 @@ function MovieCard({ movie, userRating, isConnected, onSelect, onRate }) {
             <img src={movie.poster} alt={movie.title} />
             <h3>{movie.title}</h3>
             <p>{movie.releaseYear}</p>
-            {/* Implement 5-star rating system here and call handleRate with the user's rating */}
+            <ReactStars
+                count={5}
+                value={userRating}
+                size={24}
+                activeColor="#ffd700"
+                onChange={handleRating}
+            />
         </div>
     );
 }
@@ -33,7 +36,6 @@ MovieCard.propTypes = {
         releaseYear: PropTypes.string,
     }).isRequired,
     userRating: PropTypes.number,
-    isConnected: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
     onRate: PropTypes.func.isRequired,
 };
