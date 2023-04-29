@@ -1,4 +1,4 @@
-from models import MovieRating
+from ..models import MovieRating
 from ..database import db
 
 class RatingService:
