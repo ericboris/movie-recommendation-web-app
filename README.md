@@ -35,16 +35,16 @@ Sprint 2: Frontend Infrastructure and Components
     -   [X] Initialize the React project using Create React App or a similar tool  
     -   [X] Set up folder structure and file organization  
     -   [X] Install necessary dependencies  
- - [ ] Develop the App, ConnectWallet, and UserProfile components  
-    -   [ ] Create the main App component to manage state and routing  
-    -   [ ] Implement the ConnectWallet component for MetaMask integration  
-    -   [ ] Develop the UserProfile component to display user information  
- - [ ] Implement MetaMask connection and user authentication  
-    -   [ ] Add MetaMask connection logic to ConnectWallet component  
-    -   [ ] Implement user authentication flow  
- - [ ] Design MovieSearch, MovieList, and MovieCard components  
-    -   [ ] Sketch out component layout and appearance  
-    -   [ ] Define props and state required for each component  
+ - [X] Develop the App, ConnectWallet, and UserProfile components  
+    -   [X] Create the main App component to manage state and routing  
+    -   [X] Implement the ConnectWallet component for MetaMask integration  
+    -   [X] Develop the UserProfile component to display user information  
+ - [X] Implement MetaMask connection and user authentication  
+    -   [X] Add MetaMask connection logic to ConnectWallet component  
+    -   [X] Implement user authentication flow  
+ - [X] Design MovieSearch, MovieList, and MovieCard components  
+    -   [X] Sketch out component layout and appearance  
+    -   [X] Define props and state required for each component  
  
 Sprint 3: Backend Services  
  
