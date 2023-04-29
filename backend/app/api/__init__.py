@@ -1,1 +1,1 @@
-from . import api_gateway
+from .api import api_bp
