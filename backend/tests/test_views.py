@@ -11,6 +11,6 @@ class TestViews(TestCase):
 
     def test_example_route(self):
         response = self.client.get('api/')
-
+        print("HELLO TEST WORLD")
         self.assert200(response)
 
