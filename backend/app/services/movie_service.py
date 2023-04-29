@@ -1,9 +1,13 @@
 import requests
 from functools import lru_cache
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class MovieService:
     API_BASE_URL = 'https://api.themoviedb.org/3'
-    API_KEY = 'your_api_key'
+    API_KEY = os.environ.get('MOVIE_DB_API_KEY')
 
     def search_movies(self, query: str, page: int) -> list:
         url = f'{self.API_BASE_URL}/search/movie'
