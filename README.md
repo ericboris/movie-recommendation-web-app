@@ -48,16 +48,16 @@ Sprint 2: Frontend Infrastructure and Components
  
 Sprint 3: Backend Services  
  
- - [ ] Develop MovieService to interact with public movie API  
-    -   [ ] Identify appropriate movie API (e.g., The Movie Database API)  
-    -   [ ] Set up API key and authentication if necessary  
-    -   [ ] Implement API calls for searching and fetching movie details  
- - [ ] Implement search and fetch movie details functionality  
-    -   [ ] Create search functionality in MovieService  
-    -   [ ] Implement method for fetching individual movie details  
- - [ ] Create RatingService for managing user movie ratings  
-    -   [ ] Implement CRUD operations for movie ratings  
-    -   [ ] Associate ratings with user accounts  
+ - [X] Develop MovieService to interact with public movie API  
+    -   [X] Identify appropriate movie API (e.g., The Movie Database API)  
+    -   [X] Set up API key and authentication if necessary  
+    -   [X] Implement API calls for searching and fetching movie details  
+ - [X] Implement search and fetch movie details functionality  
+    -   [X] Create search functionality in MovieService  
+    -   [X] Implement method for fetching individual movie details  
+ - [X] Create RatingService for managing user movie ratings  
+    -   [X] Implement CRUD operations for movie ratings  
+    -   [X] Associate ratings with user accounts  
  - [ ] Implement RecommendationService for generating movie recommendations  
     -   [ ] Develop a recommendation algorithm  
     -   [ ] Integrate algorithm with movie and user data  
