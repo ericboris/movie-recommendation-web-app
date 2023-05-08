@@ -1,11 +1,16 @@
-import React from 'react';
+// MovieCard.js
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './MovieCard.css';
 import ReactStars from 'react-rating-stars-component';
+import { UserContext } from '../../contexts/UserContext';
+import { isUserLoggedIn } from '../../helpers';
 
-function MovieCard({ movie, userRating, onSelect, onRate }) {
+function MovieCard({ movie, userRating, onSelect }) {
+    const { accountAddress } = useContext(UserContext);
+
     const handleRating = (rating) => {
-        onRate(movie.id, rating);
+        console.log("movieId:", movie.id, "rating: ", rating);
     };
 
     const handleClick = () => {
@@ -17,13 +22,17 @@ function MovieCard({ movie, userRating, onSelect, onRate }) {
             <img src={movie.poster} alt={movie.title} />
             <h3>{movie.title}</h3>
             <p>{movie.releaseYear}</p>
-            <ReactStars
-                count={5}
-                value={userRating}
-                size={24}
-                activeColor="#ffd700"
-                onChange={handleRating}
-            />
+            {isUserLoggedIn(accountAddress) ? (
+                <ReactStars
+                    count={5}
+                    value={userRating}
+                    size={24}
+                    activeColor="#ffd700"
+                    onChange={handleRating}
+                />
+            ) : (
+                <p>Please connect your wallet to rate this movie.</p>
+            )}
         </div>
     );
 }
@@ -37,7 +46,6 @@ MovieCard.propTypes = {
     }).isRequired,
     userRating: PropTypes.number,
     onSelect: PropTypes.func.isRequired,
-    onRate: PropTypes.func.isRequired,
 };
 
 export default MovieCard;
