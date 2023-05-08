@@ -44,9 +44,9 @@ def get_movie_details(movie_id):
     details = movie_service.get_movie_details(movie_id)
     return jsonify(details)
 
-@api_bp.route('/movies/<int:movie_id>/rating', methods=['POST'], endpoint='create_rating')
+@api_bp.route('/movies/<int:movie_id>/rating', methods=['PUT'], endpoint='submit_rating')
 @AuthenticationService.authenticate_user
-def create_rating(movie_id):
+def submit_rating(movie_id):
     # Validate input data against schema
     try:
         jsonschema.validate(request.json, input_schema)
@@ -56,29 +56,14 @@ def create_rating(movie_id):
     # Sanitize input data
     rating = escape(request.json['rating'])
     
-    rating_service.create_rating(wallet_address, movie_id, rating)
-    return jsonify({"message": "Rating created"})
+    rating_service.make_rating(wallet_address, movie_id, rating)
+    return jsonify({"message": "Rating submitted"})
 
-@api_bp.route('/movies/<int:movie_id>/rating', methods=['PUT'], endpoint='update_rating')
+@api_bp.route('/movies/<int:movie_id>/rating', methods=['DELETE'], endpoint='remove_rating')
 @AuthenticationService.authenticate_user
-def update_rating(movie_id):
-    # Validate input data against schema
-    try:
-        jsonschema.validate(request.json, input_schema)
-    except jsonschema.ValidationError:
-        return jsonify({'error': 'Invalid input data'}), 400
-    
-    # Sanitize input data
-    rating = escape(request.json['rating'])
-    
-    rating_service.update_rating(wallet_address, movie_id, rating)
-    return jsonify({"message": "Rating updated"})
-
-@api_bp.route('/movies/<int:movie_id>/rating', methods=['DELETE'], endpoint='delete_rating')
-@AuthenticationService.authenticate_user
-def delete_rating(movie_id):
-    rating_service.delete_rating(wallet_address, movie_id)
-    return jsonify({"message": "Rating deleted"})
+def remove_rating(movie_id):
+    rating_service.remove_rating(wallet_address, movie_id)
+    return jsonify({"message": "Rating removed"})
 
 @api_bp.route('/recommendations', methods=['GET'], endpoint='get_recommendations')
 def get_recommendations():
