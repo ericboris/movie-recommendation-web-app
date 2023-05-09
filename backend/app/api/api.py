@@ -2,12 +2,13 @@ from flask import Blueprint, request, jsonify
 from werkzeug.utils import escape
 import jsonschema
 
-from ..services import AuthenticationService, MovieService, RatingService, RecommendationService
+#from ..services import AuthenticationService, MovieService, RatingService, RecommendationService
+from ..services import AuthenticationService, RatingService
 
 api_bp = Blueprint('api', __name__)
-movie_service = MovieService()
+#movie_service = MovieService()
 rating_service = RatingService()
-recommendation_service = RecommendationService()
+#recommendation_service = RecommendationService()
 
 # Define JSON schema for input data
 input_schema = {
@@ -45,7 +46,7 @@ def get_movie_details(movie_id):
     return jsonify(details)
 
 @api_bp.route('/movies/<int:movie_id>/rating', methods=['PUT'], endpoint='submit_rating')
-@AuthenticationService.authenticate_user
+# @AuthenticationService.authenticate_user
 def submit_rating(movie_id):
     # Validate input data against schema
     try:
@@ -54,9 +55,10 @@ def submit_rating(movie_id):
         return jsonify({'error': 'Invalid input data'}), 400
     
     # Sanitize input data
+    wallet_address = escape(request.json['accountAddress'])
     rating = escape(request.json['rating'])
     
-    rating_service.make_rating(wallet_address, movie_id, rating)
+    rating_service.submit_rating(wallet_address, movie_id, rating)
     return jsonify({"message": "Rating submitted"})
 
 @api_bp.route('/movies/<int:movie_id>/rating', methods=['DELETE'], endpoint='remove_rating')

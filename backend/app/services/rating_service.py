@@ -2,10 +2,13 @@ from ..models import MovieRating
 from ..database import db
 
 class RatingService:
-    def submit_rating(self, wallet_address: str, movie_id: int, rating: float) -> None:
+    def submit_rating(self, wallet_address: str, movie_id: int, rating: int) -> None:
         """ 
         If user has already rated movie call update_rating, else call create_rating
         """
+        wallet_address = str(wallet_address)
+        rating = int(rating)
+
         movie_rating = MovieRating.query.filter_by(wallet_address=wallet_address, movie_id=movie_id).first()
 
         if movie_rating:

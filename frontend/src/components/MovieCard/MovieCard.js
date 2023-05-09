@@ -5,12 +5,18 @@ import './MovieCard.css';
 import ReactStars from 'react-rating-stars-component';
 import { UserContext } from '../../contexts/UserContext';
 import { isUserLoggedIn } from '../../helpers';
+import { submitMovieRating } from '../../services/api';
 
 function MovieCard({ movie, userRating, onSelect }) {
     const { accountAddress } = useContext(UserContext);
 
-    const handleRating = (rating) => {
-        console.log("movieId:", movie.id, "rating: ", rating);
+    const handleRating = async (rating) => {
+        try {
+            const responseData = await submitMovieRating(accountAddress, movie.id, rating);
+            console.log(responseData);
+        } catch (error) {
+            console.error('Error submitting rating:', error);
+        }
     };
 
     const handleClick = () => {
